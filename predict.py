@@ -1,8 +1,10 @@
 import os
 import shutil
+
 from ultralytics import YOLO
 
 model = YOLO("./runs/classify/train/weights/best.pt")  # load a custom model
+
 
 def classify_images(image_path, model):
     # 进行图像分类
@@ -30,13 +32,13 @@ def classify_images(image_path, model):
     return top_class_name
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # 需要分类的图片的路径
     target_path = "./flower_test"
 
     # 如果是文件夹，处理器中所有图片
     if os.path.isdir(target_path):
-        #获取文件夹中所有的图片
+        # 获取文件夹中所有的图片
         image_extensions = [".jpg", ".jpeg", ".png"]
         for image_name in os.listdir(target_path):
             image_path = os.path.join(target_path, image_name)
@@ -44,4 +46,3 @@ if __name__ == '__main__':
                 classify_images(image_path, model)
     else:
         classify_images(target_path, model)
-
