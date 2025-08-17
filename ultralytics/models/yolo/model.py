@@ -312,8 +312,6 @@ class YOLOE(Model):
         assert isinstance(self.model, YOLOEModel)
         self.model.set_vocab(vocab, names=names)
 
-    
-    
     def get_vocab(self, names):
         """Get vocabulary for the given class names."""
         assert isinstance(self.model, YOLOEModel)
